@@ -1,0 +1,37 @@
+terraform {
+  required_providers {
+    azurerm = {
+        source = "hashicorp/azurerm" # Specify the provider for Azure
+        version = "~> 3.0" # Specify the version of the Azure provider
+    }
+  }
+
+  required_version = ">= 1.9.0" # Specify the required version of Terraform
+}
+
+provider "azurerm" {
+  features {} # This block is required to enable the Azure provider features
+  use_cli = true
+  skip_provider_registration = true # Skip provider registration to avoid issues with Azure provider registration
+}
+
+variable "rg_name" { # Create a resource group for storage account
+  type       = string
+    default    = "948-cf4ffe10-using-terraform-with-azure-setting-t" # Default name for the resource group
+}
+
+data "azurerm_resource_group" "main" {
+  name = var.rg_name # Reference the resource group name from the variable
+}
+
+resource "azurerm_storage_account" "storageacc" {
+    name                = "storageacc7089we" # This is the name of the storage account
+    resource_group_name = data.azurerm_resource_group.main.name# Reference to the resource group created above
+    location            = data.azurerm_resource_group.main.location # Location of the storage account
+    account_tier        = "Standard" # The performance tier of the storage account      
+    account_replication_type = "LRS" # The replication type of the storage account, LRS means Locally Redundant Storage
+
+    tags = { # Tags for the storage account
+        environment = "dev" # Tag to indicate the environment
+    }
+}
