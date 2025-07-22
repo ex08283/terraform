@@ -1,0 +1,77 @@
+terraform {
+  required_providers {
+    azurerm = {
+        source = "hashicorp/azurerm" # Specify the provider for Azure
+        version = "~> 3.0" # Specify the version of the Azure provider
+    }
+  }
+
+  backend "azurerm" {
+    resource_group_name  = "rg-terraform-acc" # Name of the resource group for the backend
+    storage_account_name = "storageacc7089we3432" # Name of the storage account for the backend
+    container_name       = "tfstate" # Name of the container in the storage account
+    key                  = "dev.terraform.tfstate" # Key for the state file in the container
+    
+  }
+
+  required_version = ">= 1.9.0" # Specify the required version of Terraform
+}
+
+provider "azurerm" {
+  features {} # This block is required to enable the Azure provider features
+  use_cli = true
+  skip_provider_registration = true # Skip provider registration to avoid issues with Azure provider registration
+}
+
+variable "environment" {
+  type    = string # Type of the variable, which is a string
+  default = "dev" # Default value for the variable
+  description = "The environment for the resources, e.g., dev, test, prod" # Description of the variable
+}
+
+# when to use local variables
+# Local variables are used to define values that are used multiple times within a module or configuration.
+# They help to avoid repetition and make the code cleaner and easier to maintain.
+# compare this with the variable block above, which is used to define values that can be passed in from outside the module or configuration.
+# the above environment variable can change based on the environment you are deploying to, while the local variable is fixed within the module.
+locals {
+  common_tags = { # Define common tags that can be reused across resources
+    environment = "dev"
+    lob = "Banking"
+    stage = "alpha"
+  }
+}
+
+resource "azurerm_resource_group" "rg_rm" {
+    name     = "rg-terraform-stat" # Name of the resource group
+    location = "UK South" # Location where the resource group will be created
+    tags = { # Tags for the resource group
+        businesscriticality = "Low" # Tag to indicate the business criticality
+        businessunit = "IT" # Tag to indicate the business unit
+        costcentre = "tf" # Tag to indicate the cost center
+        dataclassification = "Internal" # Tag to indicate the data classification
+        workloadname = "tf" # Tag to indicate the workload name
+    }
+
+    
+  
+}
+
+resource "azurerm_storage_account" "storageacc" {
+    name                = "storageaccwe3432" # This is the name of the storage account
+    resource_group_name = azurerm_resource_group.rg_rm.name # The name of the resource group where the storage account will be created
+    location            = azurerm_resource_group.rg_rm.location # The location of the storage account, same as the resource group
+    account_tier        = "Standard" # The performance tier of the storage account      
+    account_replication_type = "LRS" # The replication type of the storage account, LRS means Locally Redundant Storage
+
+    tags = { # Tags for the storage account
+        environment = local.common_tags.stage # Tag to indicate the environment, using the variable defined above
+    }
+}
+
+
+# Output the storage account name
+output "storage_account_name" {
+  value = azurerm_storage_account.storageacc.name # Output the name of the storage account 
+}
+
