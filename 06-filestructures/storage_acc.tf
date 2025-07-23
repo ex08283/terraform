@@ -13,12 +13,10 @@ resource "azurerm_storage_account" "storageacc" {
         environment = local.common_tags.environment # Tag to indicate the environment, using the variable defined in locals.tf
     }
 
-
     #depends_on = [ azurerm_resource_group.rg_rm ] 
     # Ensure the storage account is created after the resource group, explicitly defining the dependency
     # implicit dependencies are automatically handled by Terraform, but it's good practice to define them when necessary.
     # avoid explicit dependencies unless necessary, as Terraform manages dependencies automatically.
-
 }
 
 
