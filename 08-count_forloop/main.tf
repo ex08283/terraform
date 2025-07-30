@@ -1,4 +1,8 @@
 resource "azurerm_resource_group" "example" {
+  lifecycle {
+    create_before_destroy = false  
+  }
+  
   name     = "${var.environment}-resources"
   location = var.allowed_locations[0] # Use the first allowed location from the list
   tags = {
