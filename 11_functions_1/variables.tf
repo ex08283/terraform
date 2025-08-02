@@ -30,6 +30,10 @@ variable "allowed_ports" {
 
 
 
+# Environment variable - determines the deployment environment
+# This variable is used with the lookup() function to select appropriate VM sizes and other environment-specific settings
+# The validation block ensures only valid environments are used, preventing configuration errors
+# Valid values: dev, staging, prod - each typically has different resource requirements and configurations
 variable "environment" {
   type    = string # Type of the variable, which is a string
   default = "dev"
@@ -40,6 +44,10 @@ variable "environment" {
   description = "The environment for the resources, e.g., dev, test, prod" # Description of the variable
 }
 
+# VM sizes variable - maps environment names to appropriate VM sizes
+# This map is used with the lookup() function to automatically select the right VM size based on environment
+# Different environments get different VM sizes: dev (smaller), staging (medium), prod (larger)
+# This ensures cost optimization while meeting performance requirements for each environment
 variable "vm_sizes" {
   type = map(string)
   default = {
@@ -55,8 +63,15 @@ variable "account_names" {
   default = [ "djtutorial71","djtutorial72", "djtutorial73" ]    
 }
 
-# a map is a collection of key-value pairs, where each key is unique
-# all the keys in the map must be of the same type, and all the values must also be of the same type
+# Resource tags variable - comprehensive tagging strategy for Azure resources
+# A map is a collection of key-value pairs, where each key is unique
+# All the keys in the map must be of the same type, and all the values must also be of the same type
+# These tags are crucial for:
+# - Resource organization and management
+# - Cost allocation and budgeting
+# - Compliance and governance
+# - Security classification
+# - Business unit identification
 variable "resource_tags" {
   type = map(string) # Type of the variable is a map of strings
   default = {
@@ -78,15 +93,50 @@ variable "allowed_locations" {
   description = "List of allowed Azure locations for resources"
 }
 
+# VM size variable - defines the specific VM size for resources
+# This variable includes multiple validation rules to ensure proper VM size format
+# Validation 1: Ensures the VM size name is between 2 and 20 characters
+# Validation 2: Ensures the VM size contains "standard" (case-insensitive)
+# These validations help prevent deployment errors and ensure consistent naming conventions
+# The strcontains() function with lower() ensures case-insensitive validation
 variable "vm_size" {
   type = string
   default = "standard_D2s_v3"
   validation {
-    condition = length(var.vm_size) => 2 && length(var.)
+    condition = length(var.vm_size) >= 2 && length(var.vm_size) <= 20
+    error_message = "char length"
+  }
+
+  validation {
+    condition = strcontains(lower(var.vm_size),"standard")
+    error_message = "containsstandard"
   }
   
 }
 
+# Backup name variable - defines the name for backup resources
+# This variable includes validation to ensure the name ends with "_backup"
+# The endswith() function validates the naming convention for backup resources
+# This naming convention helps with resource organization and backup management
+# The validation prevents deployment errors by ensuring consistent backup naming
+variable "backup_name" {
+  default = "test_backup"
+  type = string
+  validation {
+    condition = endswith(var.backup_name,"_backup")
+    error_message = "has to end with _backup"
+  }
+}
 
+# Credential variable - stores sensitive authentication information
+# The sensitive = true attribute is crucial for security
+# This prevents Terraform from displaying the credential value in logs, output, and state files
+# Sensitive values are automatically encrypted in the state file and masked in console output
+# This is essential for protecting passwords, API keys, and other confidential information
+variable "credential" {
+  default = "124xuys"
+  type = string
+  sensitive = true
+}
 
 
