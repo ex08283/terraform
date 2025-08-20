@@ -1,0 +1,5 @@
+Following resources are marked to be skipped:
+
+- /subscriptions/8f2f2e98-2bdf-4cb7-a893-8a0e07a806d7/resourceGroups/day24-rg/providers/Microsoft.Web/sites/day24-webapp-187089/basicPublishingCredentialsPolicies/ftp
+- /subscriptions/8f2f2e98-2bdf-4cb7-a893-8a0e07a806d7/resourceGroups/day24-rg/providers/Microsoft.Web/sites/day24-webapp-187089/basicPublishingCredentialsPolicies/scm
+- /subscriptions/8f2f2e98-2bdf-4cb7-a893-8a0e07a806d7/resourceGroups/day24-rg/providers/Microsoft.Web/sites/day24-webapp-187089/config/web
