@@ -31,7 +31,7 @@ resource "azurerm_resource_group" "rg_rm" {
 }
 
 resource "azurerm_storage_account" "storageacc" {
-    name                = "storageacc7089we3432" # This is the name of the storage account
+    name                = "storageacc7089we2025" # This is the name of the storage account
     resource_group_name = azurerm_resource_group.rg_rm.name # The name of the resource group where the storage account will be created
     location            = azurerm_resource_group.rg_rm.location # The location of the storage account, same as the resource group
     account_tier        = "Standard" # The performance tier of the storage account      

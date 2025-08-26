@@ -1,0 +1,6 @@
+rgname                 = "stage-dj-rg"
+service_principal_name = "stage-dj-spn"
+keyvault_name          = "stage-dj-kv-101"
+SUB_ID = "f30f4f95-ede5-4f68-aa0c-811033ee0007"
+cluster_name = "stage-dj-cluster"
+node_pool_name = "stagenp"

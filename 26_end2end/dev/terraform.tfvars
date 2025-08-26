@@ -1,0 +1,6 @@
+rgname                 = "dev-dj-rg"
+service_principal_name = "dev-dj-spn"
+keyvault_name          = "dev-dj-kv-101"
+SUB_ID = "f30f4f95-ede5-4f68-aa0c-811033ee0007"
+cluster_name = "dev-dj-cluster"
+node_pool_name = "devnp"
