@@ -6,8 +6,6 @@
 > [!NOTE]
 > Terraform comes in a few different versions.  This guide covers Terraform "*Open Source*" only.  It doesn't cover Terraform "*Cloud*" or Terraform "*Enterprise*".
 
-> [!IMPORTANT]
-This is a live document.  Some of the sections are still a work in progress.  I will be continually updating it over time.
 
 ---
 
