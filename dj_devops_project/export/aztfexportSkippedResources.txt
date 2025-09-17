@@ -1,0 +1,8 @@
+Following resources are marked to be skipped:
+
+- /subscriptions/f30f4f95-ede5-4f68-aa0c-811033ee0007/resourceGroups/test-group/providers/Microsoft.Web/sites/day245-webapp-187089/basicPublishingCredentialsPolicies/ftp
+- /subscriptions/f30f4f95-ede5-4f68-aa0c-811033ee0007/resourceGroups/test-group/providers/Microsoft.Web/sites/day245-webapp-187089/basicPublishingCredentialsPolicies/scm
+- /subscriptions/f30f4f95-ede5-4f68-aa0c-811033ee0007/resourceGroups/test-group/providers/Microsoft.Web/sites/day245-webapp-187089/config/web
+- /subscriptions/f30f4f95-ede5-4f68-aa0c-811033ee0007/resourceGroups/test-group/providers/Microsoft.Web/sites/day245-webapp-187089/slots/dev/basicPublishingCredentialsPolicies/ftp
+- /subscriptions/f30f4f95-ede5-4f68-aa0c-811033ee0007/resourceGroups/test-group/providers/Microsoft.Web/sites/day245-webapp-187089/slots/dev/basicPublishingCredentialsPolicies/scm
+- /subscriptions/f30f4f95-ede5-4f68-aa0c-811033ee0007/resourceGroups/test-group/providers/Microsoft.Web/sites/day245-webapp-187089/slots/dev/config/web

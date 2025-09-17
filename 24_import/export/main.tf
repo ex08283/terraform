@@ -67,4 +67,11 @@ resource "azurerm_linux_web_app" "res-4" {
   site_config {
   }
 }
-
+# resource "azurerm_app_service_custom_hostname_binding" "res-8" {
+#   app_service_name    = "day24-webapp-187089"
+#   hostname            = "day24-webapp-187089.azurewebsites.net"
+#   resource_group_name = "day24-rg"
+#   depends_on = [
+#     azurerm_linux_web_app.res-4
+#   ]
+# }

@@ -1,0 +1,32 @@
+{
+	"/subscriptions/f30f4f95-ede5-4f68-aa0c-811033ee0007/resourceGroups/test-group": {
+		"resource_id": "/subscriptions/f30f4f95-ede5-4f68-aa0c-811033ee0007/resourceGroups/test-group",
+		"resource_type": "azurerm_resource_group",
+		"resource_name": "res-0"
+	},
+	"/subscriptions/f30f4f95-ede5-4f68-aa0c-811033ee0007/resourceGroups/test-group/providers/Microsoft.Web/serverFarms/day245-sp": {
+		"resource_id": "/subscriptions/f30f4f95-ede5-4f68-aa0c-811033ee0007/resourceGroups/test-group/providers/Microsoft.Web/serverFarms/day245-sp",
+		"resource_type": "azurerm_service_plan",
+		"resource_name": "res-1"
+	},
+	"/subscriptions/f30f4f95-ede5-4f68-aa0c-811033ee0007/resourceGroups/test-group/providers/Microsoft.Web/sites/day245-webapp-187089": {
+		"resource_id": "/subscriptions/f30f4f95-ede5-4f68-aa0c-811033ee0007/resourceGroups/test-group/providers/Microsoft.Web/sites/day245-webapp-187089",
+		"resource_type": "azurerm_linux_web_app",
+		"resource_name": "res-2"
+	},
+	"/subscriptions/f30f4f95-ede5-4f68-aa0c-811033ee0007/resourceGroups/test-group/providers/Microsoft.Web/sites/day245-webapp-187089/hostNameBindings/day245-webapp-187089.azurewebsites.net": {
+		"resource_id": "/subscriptions/f30f4f95-ede5-4f68-aa0c-811033ee0007/resourceGroups/test-group/providers/Microsoft.Web/sites/day245-webapp-187089/hostNameBindings/day245-webapp-187089.azurewebsites.net",
+		"resource_type": "azurerm_app_service_custom_hostname_binding",
+		"resource_name": "res-6"
+	},
+	"/subscriptions/f30f4f95-ede5-4f68-aa0c-811033ee0007/resourceGroups/test-group/providers/Microsoft.Web/sites/day245-webapp-187089/slots/dev": {
+		"resource_id": "/subscriptions/f30f4f95-ede5-4f68-aa0c-811033ee0007/resourceGroups/test-group/providers/Microsoft.Web/sites/day245-webapp-187089/slots/dev",
+		"resource_type": "azurerm_linux_web_app_slot",
+		"resource_name": "res-7"
+	},
+	"/subscriptions/f30f4f95-ede5-4f68-aa0c-811033ee0007/resourceGroups/test-group/providers/Microsoft.Web/sites/day245-webapp-187089/slots/dev/hostNameBindings/day245-webapp-187089-dev.azurewebsites.net": {
+		"resource_id": "/subscriptions/f30f4f95-ede5-4f68-aa0c-811033ee0007/resourceGroups/test-group/providers/Microsoft.Web/sites/day245-webapp-187089/slots/dev/hostNameBindings/day245-webapp-187089-dev.azurewebsites.net",
+		"resource_type": "azurerm_app_service_slot_custom_hostname_binding",
+		"resource_name": "res-11"
+	}
+}
