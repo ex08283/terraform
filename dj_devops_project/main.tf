@@ -32,16 +32,17 @@ resource "azurerm_linux_web_app" "linapp" {
     }
 }
 
-resource "azurerm_linux_web_app_slot" "devslot" {
-  app_service_id = azurerm_linux_web_app.linapp.id
-  name           = "dev"
-  site_config {
-    always_on                         = false
-    ftps_state                        = "FtpsOnly"
-    ip_restriction_default_action     = "Allow"
-    scm_ip_restriction_default_action = "Allow"
-  }
-}
+# the below is not needed, the slot is created in the devops pipeline
+# resource "azurerm_linux_web_app_slot" "devslot" {
+#   app_service_id = azurerm_linux_web_app.linapp.id
+#   name           = "dev"
+#   site_config {
+#     always_on                         = false
+#     ftps_state                        = "FtpsOnly"
+#     ip_restriction_default_action     = "Allow"
+#     scm_ip_restriction_default_action = "Allow"
+#   }
+# }
 
 #tf state list
 #show all resources in state file

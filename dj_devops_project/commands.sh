@@ -1,7 +1,8 @@
 #tf state list
 #show all resources in state file
 
-# import existing resource using 
+# import existing resource using
+# run using powershell instead of bash
 #tf import azurerm_resource_group.rg /subscriptions/8f2f2e98-2bdf-4cb7-a893-8a0e07a806d7/resourceGroups/day24-rg 
 
 # how to remove resource from state
