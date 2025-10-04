@@ -14,3 +14,5 @@
 
 # to destroy all the resource in the statfile use below command
 # terraform destroy --auto-approve
+
+#test
